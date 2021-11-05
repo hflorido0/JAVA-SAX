@@ -1,4 +1,4 @@
-package dom;
+package sax;
 
 import java.io.File;
 import java.io.FileWriter;

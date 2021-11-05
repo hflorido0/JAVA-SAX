@@ -9,8 +9,8 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
-import dom.SaxNewDocument;
-import dom.SaxReader;
+import sax.SaxNewDocument;
+import sax.SaxReader;
 
 public class main {
 
