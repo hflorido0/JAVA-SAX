@@ -15,24 +15,13 @@ import sax.SaxReader;
 public class main {
 
 	public static void main(String[] args) {
-
 		//reading an existing xml document
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser parser;
-		try {
-			parser = factory.newSAXParser();
-			File file = new File ("files/productos.xml");
-			SaxReader saxReader = new SaxReader();
-			parser.parse(file, saxReader);
-		} catch (ParserConfigurationException | SAXException e) {
-			System.out.println("ERROR creating the parser");
-		} catch (IOException e) {
-			System.out.println("ERROR file not found");
-		}
+		SaxReader saxReader = new SaxReader();
+		saxReader.init("files/productos.xml");
 		
 		//Crating a new xml document
 		SaxNewDocument saxNewDocument = new SaxNewDocument();
-		saxNewDocument.generateDocument();
+		saxNewDocument.generateDocument("files/productosResult.xml");
 	}
 
 }

@@ -1,6 +1,12 @@
 package sax;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -12,6 +18,20 @@ public class SaxReader extends DefaultHandler {
 	ArrayList<Product> products;
 	Product product;
 	String value;
+	
+	public void init(String fil) {
+		SAXParserFactory factory = SAXParserFactory.newInstance();
+		SAXParser parser;
+		try {
+			parser = factory.newSAXParser();
+			File file = new File (fil);
+			parser.parse(file, new SaxReader());
+		} catch (ParserConfigurationException | SAXException e) {
+			System.out.println("ERROR creating the parser");
+		} catch (IOException e) {
+			System.out.println("ERROR file not found");
+		}	
+	}
 	
 	@Override
 	public void startDocument() throws SAXException {

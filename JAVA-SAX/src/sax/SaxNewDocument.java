@@ -16,7 +16,7 @@ public class SaxNewDocument {
 	}
 	
 
-	public void generateDocument() {
+	public void generateDocument(String file) {
 		//version
 		buffer.append("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n");
 		//PARENT NODE
@@ -32,7 +32,7 @@ public class SaxNewDocument {
 		buffer.append("\t\t<price badge=\"Euro\">29.99</price>\n");
 		
 		//child into product with 2 attributes and content
-		buffer.append("\t\t<stock color=\"blue\" storage=\"22\">22</stock>\n");
+		buffer.append("\t\t<stock color=\"blue\" storage=\"22\">32</stock>\n");
 		
 		//end tag
 		buffer.append("\t</product>\n");
@@ -51,13 +51,12 @@ public class SaxNewDocument {
 		buffer.append("\t</product>\n");
 		buffer.append("</products>");
 		
-		generateXml();
+		generateXml(file);
 	}
 	
-	private void generateXml() {
-		TransformerFactory factory = TransformerFactory.newInstance();
+	private void generateXml(String fil) {
 		try {			
-			File file = new File("files/productosResult.xml");
+			File file = new File(fil);
 			FileWriter fw = new FileWriter(file);
 			
 			PrintWriter pw = new PrintWriter(fw);
