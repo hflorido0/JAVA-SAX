@@ -19,7 +19,7 @@ public class SaxReader extends DefaultHandler {
 	Product product;
 	String value;
 	
-	public void init(String fil) {
+	public ArrayList<Product> init(String fil) {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser;
 		try {
@@ -31,6 +31,8 @@ public class SaxReader extends DefaultHandler {
 		} catch (IOException e) {
 			System.out.println("ERROR file not found");
 		}	
+		
+		return this.products;
 	}
 	
 	@Override
