@@ -25,7 +25,7 @@ public class SaxReader extends DefaultHandler {
 		try {
 			parser = factory.newSAXParser();
 			File file = new File (fil);
-			parser.parse(file, new SaxReader());
+			parser.parse(file, this);
 		} catch (ParserConfigurationException | SAXException e) {
 			System.out.println("ERROR creating the parser");
 		} catch (IOException e) {
